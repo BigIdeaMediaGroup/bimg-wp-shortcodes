@@ -1,13 +1,7 @@
 <?php
-
-
-
-
-
 class BIMGSeparator {
 	public function __construct()
 	{
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_shortcode_scripts' ) );
 		add_shortcode( 'bimg_separator', array( $this, 'shortcode' ) );
 	}
 	
