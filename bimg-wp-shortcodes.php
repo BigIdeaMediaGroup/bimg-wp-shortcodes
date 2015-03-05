@@ -30,4 +30,5 @@ foreach ( glob( plugin_dir_path( __FILE__ ) . 'shortcodes/*.php' ) as $file ) {
 
 $bimg_row = new BIMGRow;
 $bimg_col = new BIMGColumn;
+$bimg_separator = new BIMGSeparator;
 
