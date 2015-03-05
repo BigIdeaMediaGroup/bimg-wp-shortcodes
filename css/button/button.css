@@ -1,0 +1,41 @@
+
+/*BUTTON STYLE's*/
+.button_rounded
+{
+	border-radius:10px;
+}
+
+.button_square
+{
+	border-radius: none;
+}
+
+
+/*BUTTON SIZE's*/
+.button_small
+{
+	font-size: 10px;
+}
+
+.button_medium
+{
+	font-size: 20px;
+}
+
+.button_large
+{
+	font-size: 40px;
+}
+
+/*BUTTON BORDER*/
+.button_border_false
+{
+	border: none;
+}
+
+.button_border_true
+{
+	border: 1px solid black
+}
+
+
