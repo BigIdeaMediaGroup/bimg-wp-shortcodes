@@ -28,13 +28,17 @@ foreach ( glob( plugin_dir_path( __FILE__ ) . 'shortcodes/*.php' ) as $file ) {
 	include_once $file;
 }
 
+// Grid System
 $bimg_row = new BIMGRow;
 $bimg_col = new BIMGColumn;
+
+// Separator
 $bimg_separator = new BIMGSeparator;
 
+// Tab System
 $bimg_tab_group = new BIMGTabGroup;
 $bimg_tab = new BIMGTab;
 
+// Button
 $bimg_button = new BIMGButton;
-
 

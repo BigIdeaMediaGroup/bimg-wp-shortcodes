@@ -8,7 +8,7 @@ class BIMGTabGroup {
 
 	public function enqueue_shortcode_scripts()
 	{
-        wp_enqueue_style( 'jquery-ui-style', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css' );
+		wp_enqueue_style( 'jquery-ui-style', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css' );
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'jquery-ui-core' );
 		wp_enqueue_script( 'jquery-ui-widget' );
@@ -27,15 +27,15 @@ class BIMGTabGroup {
 		$output .= '">';
 
 		$titles = explode( '^', $titles );
-        $index = 1;
-        $output .= '<ul>';
+		$index = 1;
+		$output .= '<ul>';
 		foreach ( $titles as $title ) {
 			$output .= '<li><a href="#' . $id . '-' . $index . '">';
 			$output .= $title;
 			$output .= '</a></li>';
-            $index++;
+			$index++;
 		}
-        $output .= '</ul>';
+		$output .= '</ul>';
 
 		$output .= do_shortcode( $content );
 
