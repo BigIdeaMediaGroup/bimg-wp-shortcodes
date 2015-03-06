@@ -25,7 +25,7 @@
  */
 
 foreach ( glob( plugin_dir_path( __FILE__ ) . 'shortcodes/*.php' ) as $file ) {
-	include_once $file;
+    include_once $file;
 }
 
 // Grid System
@@ -41,3 +41,29 @@ $bimg_tabs = new BIMGTabs;
 // Button
 $bimg_button = new BIMGButton;
 
+// Register tinymce button
+add_action('admin_head', 'my_add_mce_button');
+
+function my_add_mce_button() {
+    // Check user permissions
+    if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) ) {
+        return;
+    }
+    // Check if WYSIWYG is enabled
+    if ( 'true' == get_user_option( 'rich_editing' ) ) {
+        add_filter( 'mce_external_plugins', 'bimg_add_tinymce_plugin' );
+        add_filter( 'mce_buttons', 'bimg_register_mce_button' );
+    }
+}
+
+// Declare script for new button
+function bimg_add_tinymce_plugin( $plugin_array ) {
+    $plugin_array['bimg_mce_button'] = plugins_url( '/js/tinymce/plugin.js', __FILE__ );
+    return $plugin_array;
+}
+
+// Register new button in the editor
+function bimg_register_mce_button( $buttons ) {
+    array_push( $buttons, 'bimg_mce_button' );
+    return $buttons;
+}
