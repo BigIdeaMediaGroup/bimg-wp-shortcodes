@@ -36,8 +36,7 @@ $bimg_col = new BIMGColumn;
 $bimg_separator = new BIMGSeparator;
 
 // Tab System
-$bimg_tab_group = new BIMGTabGroup;
-$bimg_tab = new BIMGTab;
+$bimg_tabs = new BIMGTabs;
 
 // Button
 $bimg_button = new BIMGButton;
