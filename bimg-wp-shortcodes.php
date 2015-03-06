@@ -42,9 +42,9 @@ $bimg_tabs = new BIMGTabs;
 $bimg_button = new BIMGButton;
 
 // Register tinymce button
-add_action('admin_head', 'my_add_mce_button');
+add_action('admin_head', 'bimg_add_mce_button');
 
-function my_add_mce_button() {
+function bimg_add_mce_button() {
     // Check user permissions
     if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) ) {
         return;
