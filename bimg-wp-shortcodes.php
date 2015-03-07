@@ -74,3 +74,10 @@ function bimg_register_mce_button( $buttons ) {
     array_push( $buttons, 'bimg_mce_button' );
     return $buttons;
 }
+
+// Register tinymce style
+add_action( 'admin_enqueue_scripts', 'register_admin_scripts' );
+
+function register_admin_scripts() {
+    wp_enqueue_style( 'bimg_tinymce_plugin', plugins_url( '/css/tinymce-plugin.css', __FILE__ ) );
+}
