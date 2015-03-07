@@ -27,9 +27,7 @@ class BIMGTabs {
 
     public function build_tabs( $class, $id, $content )
     {
-        // Parse $contents as XML
-        $content = '<?xml version="1.0"?><document>' . $content . '</document>';
-        $xml = simplexml_load_string( $content );
+        preg_match_all("/\[tab title=['\"](?P<title>[^\]]*)['\"]\](?P<content>[^\[]*)\[\/tab\]/", $content, $out);
 
         // Opening <div>
         $output = '<div class="';
@@ -44,7 +42,7 @@ class BIMGTabs {
         // List of tab titles
         $index = 1;
         $output .= '<ul>';
-        foreach ( $xml->heading as $title ) {
+        foreach ( $out['title'] as $title ) {
             $output .= '<li><a href="#' . $id . '-' . $index . '">';
             $output .= $title;
             $output .= '</a></li>';
@@ -54,7 +52,7 @@ class BIMGTabs {
 
         // The contents
         $index = 1;
-        foreach ( $xml->content as $tab_contents ) {
+        foreach ( $out['content'] as $tab_contents ) {
             $output .= '<div id="' . $id . '-' . $index . '">';
             $output .= do_shortcode( $tab_contents );
             $output .= '</div>';

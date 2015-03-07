@@ -28,6 +28,13 @@ foreach ( glob( plugin_dir_path( __FILE__ ) . 'shortcodes/*.php' ) as $file ) {
     include_once $file;
 }
 
+// Exempt necessary shortcodes from wptexturize()
+add_filter( 'no_texturize_shortcodes', 'shortcodes_to_exempt_from_wptexturize' );
+function shortcodes_to_exempt_from_wptexturize( $shortcodes ) {
+    $shortcodes[] = 'bimg_tabs';
+    return $shortcodes;
+}
+
 // Grid System
 $bimg_row = new BIMGRow;
 $bimg_col = new BIMGColumn;
