@@ -24,16 +24,16 @@ class BIMGRow {
 	public function build_row( $equal, $class, $id, $content )
 	{
 		$output = '<div class="section group';
-		if ( isset( $class ) ) {
+		if ( isset( $class ) && ( $class != '' ) ) {
 			$output .= ' ' . $class;
 		}
-		if ( isset( $id ) ) {
+		if ( isset( $id ) && ( $id != '' ) ) {
 			$output .= '" id="' . $id;
 		}
 		$output .= '">';
 		$output .= do_shortcode( $content );
 		$output .= '</div>';
-		if ( $equal && isset( $id ) ) {
+		if ( $equal && ( isset( $id ) && ( $id != '' ) ) ) {
 			$output .= '<script>jQuery(document).ready(function() {';
 			$output .= ' jQuery( " #' . $id . ' > .col ").matchHeight(); });';
 			$output .= '</script>';

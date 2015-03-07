@@ -22,10 +22,10 @@ class BIMGColumn {
 	public function build_column( $columns, $width, $class, $id, $content )
 	{
 		$output = '<div class="col span_' . $width . '_of_' . $columns;
-		if ( isset( $class ) ) {
+		if ( isset( $class ) && ( $class != '' ) ) {
 			$output .= ' ' . $class;
 		}
-		if ( isset( $id ) ) {
+		if ( isset( $id ) && ( $id != '' ) ) {
 			$output .= '" id="' . $id;
 		}
 		$output .= '">';

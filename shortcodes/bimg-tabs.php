@@ -30,12 +30,12 @@ class BIMGTabs {
         preg_match_all("/\[tab title=['\"](?P<title>[^\]]*)['\"]\](?P<content>[^\[]*)\[\/tab\]/", $content, $out);
 
         // Opening <div>
-        $output = '<div class="';
-        if ( isset( $class ) ) {
-            $output .= $class;
+        $output = '<div id="';
+        if ( isset( $id ) && ( $id != '' ) ) {
+            $output .= $id;
         }
-        if ( isset( $id ) ) {
-            $output .= '" id="' . $id;
+        if ( isset( $class ) && ( $class != '' ) ) {
+            $output .= '" class="' . $class;
         }
         $output .= '">';
 

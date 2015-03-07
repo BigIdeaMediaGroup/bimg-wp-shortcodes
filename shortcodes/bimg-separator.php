@@ -8,10 +8,10 @@ class BIMGSeparator {
     function build_separator( $id, $class )
     {
 		$output = '<hr';
-		if ( isset( $id ) ) {
+		if ( isset( $id ) && ( $id != '' ) ) {
 			$output .= ' id="' . $id . '"';
 		}
-		if ( isset( $class ) ) {
+		if ( isset( $class ) && ( $class != '' ) ) {
 			$output .= ' class="' . $class . '"';
 		}
 		$output .= '>';
