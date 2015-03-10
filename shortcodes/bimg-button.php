@@ -13,14 +13,10 @@
  * - bring tinymce plugin up to feature parity
  *
  * ShortCode Options:
- *      shape: rounded | square (default: rounded)
- *      size: small | medium | large (default: medium)
- *      border: true | false (default: false)
- *      text: "button Text"
- *      text_color: "text color"
- *      button_color: "button color"
+ *		style: "primary" or "standard"
  *      url: "button URL"
  *      class: "extra custom class"
+ *		id: "extra id class"
  */
 class BIMGButton {
     public function __construct()
@@ -31,46 +27,51 @@ class BIMGButton {
 
     public function enqueue_shortcode_scripts()
     {
-        wp_enqueue_style( 'pure', plugins_url( 'bimg-wp-shortcodes/css/button/pure.css' ) );
-        wp_enqueue_style( 'button', plugins_url( 'bimg-wp-shortcodes/css/button/button.css' ) );
+       wp_enqueue_style( 'button', plugins_url( 'bimg-wp-shortcodes/css/button/button.css' ) );
 
     }
 
     function shortcode( $atts, $content = null )
     {
         $a = shortcode_atts( array(
-            'shape' => 'rounded',
-            'size' => 'medium',
-            'border' => 'false',
+	        'style' => 'primary',
             'text' => null,
-            'text_color' => null,
-            'button_color' => null,
             'url' => null,
             'id' => null,
             'class' => null,
         ), $atts, 'bimg_button' );
 
         if ( null != $a['text'] ) {
-            $output = '<a ';
+           
+            
+            if ( 'standard' === $a['style'] )
+            {
+            	$output .= '<a class="button ' . $a['class'] . '"';
+            }
+            else
+            {
+	            if ( 'primary' === $a['style'] )
+				{
+					$output .= '<a class="button button-primary ' . $a['class'] . '"';
+				} 
+				else
+				{
+					$output .= '<a class="button button-primary"';
+				}
+            }
+            
+            
             if ( isset( $a['id'] ) && ( $a['id'] != '' ) ) {
                 $output .= 'id="' . $a['id'] . '" ';
             }
-            $output .= 'class="pure-button '
-                . 'button_' . $a['shape']
-                . ' button_' . $a['size']
-                . ' button_border_' . $a['border'] . ' ';
 
-            if ( isset( $a['class'] ) && ( $a['class'] != '' ) ) {
-                $output .= $a['class'] . '" ';
-            }
-            $output .= 'href="' . $a['url'] . '"';
-
-            $output .= 'style="color:' . $a['text_color'] . '; '
-                . 'background-color: ' . $a['button_color'] . ';"';
-
-            $output .= '>';
-            $output .= $a['text'];
-            $output .= '</a>';
+            $output .= 'href="'. $a['url'] . '">' . $a['text'] . '</a>';
+            		
+            		
+           // $output .= 'href="' . $a['url'] . '"';
+            //$output .= '>';
+            //$output .= $a['text'];
+            //$output .= '</a>';
         }
         else
         {
