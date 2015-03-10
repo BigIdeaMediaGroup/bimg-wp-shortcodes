@@ -35,18 +35,21 @@ function shortcodes_to_exempt_from_wptexturize( $shortcodes ) {
     return $shortcodes;
 }
 
+// Button
+$bimg_button = new BIMGButton;
+
 // Grid System
 $bimg_row = new BIMGRow;
 $bimg_col = new BIMGColumn;
+
+// Section
+$bimg_section = new BIMGSection;
 
 // Separator
 $bimg_separator = new BIMGSeparator;
 
 // Tab System
 $bimg_tabs = new BIMGTabs;
-
-// Button
-$bimg_button = new BIMGButton;
 
 // Register tinymce button
 add_action('admin_head', 'bimg_add_mce_button');

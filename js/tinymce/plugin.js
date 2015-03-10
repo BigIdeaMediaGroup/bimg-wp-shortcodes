@@ -169,6 +169,34 @@
                     ]
                 },
                 {
+                    text: 'Section',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert Section Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'heading',
+                                    label: 'Heading'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                }
+                            ],
+                            onsubmit: function( e ) {
+                                editor.insertContent( '[bimg_section heading="' + e.data.heading + '" id="' + e.data.id + '" class="' + e.data.class + '"][/bimg_section]');
+                            }
+                        });
+                    }
+                },
+                {
                     text: 'Separator',
                     onclick: function() {
                         editor.windowManager.open( {
