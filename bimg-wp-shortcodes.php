@@ -68,7 +68,7 @@ function bimg_add_mce_button() {
 
 // Declare script for new button
 function bimg_add_tinymce_plugin( $plugin_array ) {
-    $plugin_array['bimg_mce_button'] = plugins_url( '/js/tinymce/plugin.js', __FILE__ );
+    $plugin_array['bimg_mce_button'] = plugins_url( '/js/tinymce/plugin.min.js', __FILE__ );
     return $plugin_array;
 }
 

@@ -1,5 +1,5 @@
 (function() {
-    tinymce.PluginManager.add('bimg_mce_button', function( editor, url ) {
+    tinymce.PluginManager.add('bimg_mce_button', function( editor ) {
         editor.addButton( 'bimg_mce_button', {
             title: 'BIMG Shortcodes',
             icon: 'icon dashicons-lightbulb',
@@ -108,7 +108,7 @@
                                         }
                                     ],
                                     onsubmit: function( e ) {
-                                        if( e.data.id == '' && e.data.equal == true ) {
+                                        if( e.data.id === '' && e.data.equal === true ) {
                                             editor.windowManager.alert('You must specify an ID to use equal height columns.');
                                             return false;
                                         }
