@@ -1,15 +1,27 @@
 <?php
-    /*
-        ShortCode Options:
-            shape: rounded | square (default: rounded)
-            size: small | medium | large (default: medium)
-            border: true | false (default: false)
-            text: "button Text"
-            text_color: "text color"
-            button_color: "button color"
-            url: "button URL"
-            class: "extra custom class"
-     */
+/*
+ * Chris, if you get a look at this file before I talk to you, don't worry
+ * about the following TODO list; we'll go over it together in the office.
+ *
+ * TODO:
+ * - add support for the target attribute
+ * - add support for the title attribute
+ * - add support for CSS align
+ * - add error handling
+ * - remove inline styling
+ * - separate shortcode logic from shortcode definition
+ * - bring tinymce plugin up to feature parity
+ *
+ * ShortCode Options:
+ *      shape: rounded | square (default: rounded)
+ *      size: small | medium | large (default: medium)
+ *      border: true | false (default: false)
+ *      text: "button Text"
+ *      text_color: "text color"
+ *      button_color: "button color"
+ *      url: "button URL"
+ *      class: "extra custom class"
+ */
 class BIMGButton {
     public function __construct()
     {
