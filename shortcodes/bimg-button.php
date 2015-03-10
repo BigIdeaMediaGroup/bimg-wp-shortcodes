@@ -67,10 +67,10 @@ class BIMGButton {
 
 			if (isset( $a['url'] ) && ( $a['url'] != '' ))
 			{
-            $output .= 'href="'. $a['url'];
+            $output .= 'href="'. $a['url'] . '"';
             }
             
-            $output .=   '">' . $a['text'] . '</a>';
+            $output .=   '>' . $a['text'] . '</a>';
             		
             		
            // $output .= 'href="' . $a['url'] . '"';
