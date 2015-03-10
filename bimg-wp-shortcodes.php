@@ -51,6 +51,9 @@ $bimg_separator = new BIMGSeparator;
 // Tab System
 $bimg_tabs = new BIMGTabs;
 
+// Image System
+$bimg_tabs = new BIMGImage;
+
 // Register tinymce button
 add_action('admin_head', 'bimg_add_mce_button');
 
