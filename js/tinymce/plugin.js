@@ -6,6 +6,107 @@
             type: 'menubutton',
             menu: [
                 {
+                    text: 'Accordion',
+                    menu: [
+                        {
+                            text: 'Initialize Accordion',
+                            onclick: function() {
+                                editor.windowManager.open( {
+                                    title: 'Insert Accordion Shortcode',
+                                    body: [
+                                        {
+                                            type: 'listbox',
+                                            name: 'icon',
+                                            label: 'Icon',
+                                            'values': [
+                                                {text: 'None', value: 'false'},
+                                                {text: 'Arrow', value: 'arrow'},
+                                                {text: 'Circled Arrow', value: 'circle-arrow'},
+                                                {text: 'Carat', value: 'carat'},
+                                                {text: 'Plus/Minus', value: 'plus'},
+                                                {text: 'Circled Plus/Minus', value: 'circle-plus'},
+                                                {text: 'Triangle', value: 'triangle'},
+                                                {text: 'Circled Triangle', value: 'circle-triangle'},
+                                                {text: 'Question Mark', value: 'question'}
+                                            ]
+                                        },
+                                        {
+                                            type: 'listbox',
+                                            name: 'heightstyle',
+                                            label: 'Height Style',
+                                            'values': [
+                                                {text: 'Relative toggle height', value: 'content'},
+                                                {text: 'Equal toggle height', value: 'auto'},
+                                                {text: 'Fill container', value: 'fill'},
+                                            ]
+                                        },
+                                        {
+                                            type: 'radio',
+                                            name: 'collapsible',
+                                            label: 'Collapsible Toggles?'
+                                        },
+                                        {
+                                            type: 'textbox',
+                                            name: 'id',
+                                            label: 'ID (Required)'
+                                        },
+                                        {
+                                            type: 'textbox',
+                                            name: 'class',
+                                            label: 'Class'
+                                        },
+                                        {
+                                            type: 'textbox',
+                                            name: 'title',
+                                            label: 'Title of First Toggle'
+                                        }
+                                    ],
+                                    onsubmit: function( e ) {
+                                        if( e.data.id === '') {
+                                            editor.windowManager.alert('You must specify an ID.');
+                                            return false;
+                                        }
+                                        if( e.data.title === '') {
+                                            editor.windowManager.alert('A toggle without a title would be confusing, no?');
+                                            return false;
+                                        }
+                                        editor.insertContent(
+                                            '[bimg_accordion id="' + e.data.id +
+                                                '" class="' + e.data.class +
+                                                '" icon="' + e.data.icon +
+                                                '" height_style="' + e.data.heightstyle +
+                                                '" collapsible="' + e.data.collapsible +
+                                                '"][toggle title="' + e.data.title +
+                                                '"][/toggle][/bimg_accordion]' );
+                                    }
+                                });
+                            }
+                        },
+                        {
+                            text: 'Add Toggle',
+                            onclick: function() {
+                                editor.windowManager.open( {
+                                    title: 'Insert Additional Toggle',
+                                    body: [
+                                        {
+                                            type: 'textbox',
+                                            name: 'title',
+                                            label: 'Title'
+                                        }
+                                    ],
+                                    onsubmit: function( e ) {
+                                        if( e.data.title === '') {
+                                            editor.windowManager.alert('A toggle without a title would be confusing, no?');
+                                            return false;
+                                        }
+                                        editor.insertContent( '[toggle title="' + e.data.title + '"][/toggle]' );
+                                    }
+                                });
+                            }
+                        }
+                    ]
+                },
+                {
                     text: 'Button',
                     onclick: function() {
                         editor.windowManager.open( {
@@ -22,6 +123,15 @@
                                     label: 'Class'
                                 },
                                 {
+                                    type: 'listbox',
+                                    name: 'style',
+                                    label: 'Button Style',
+                                    'values': [
+                                        {text: 'Default', value: 'standard'},
+                                        {text: 'Primary', value: 'primary'},
+                                    ]
+                                },
+                                {
                                     type: 'textbox',
                                     name: 'text',
                                     label: 'Button Text'
@@ -30,15 +140,15 @@
                                     type: 'textbox',
                                     name: 'url',
                                     label: 'Button URL'
-                                },
-                                                            ],
+                                }
+                            ],
                             onsubmit: function( e ) {
                                 editor.insertContent(
                                     '[bimg_button id="' + e.data.id +
                                         '" class="' + e.data.class +
-                                        '" text="' + e.data.text +
+                                        '" style="' + e.data.style +
                                         '" url="' + e.data.url +
-                                        '"]');
+                                        '"]' + e.data.text + '[/bimg_button]');
                             }
                         });
                     }
