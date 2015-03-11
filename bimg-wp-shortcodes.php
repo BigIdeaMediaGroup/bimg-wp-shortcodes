@@ -55,7 +55,6 @@ $bimg_separator = new BIMGSeparator;
 // Tab System
 $bimg_tabs = new BIMGTabs;
 
-
 // Dialogs
 $bimg_dialog = new BIMGDialog;
 
