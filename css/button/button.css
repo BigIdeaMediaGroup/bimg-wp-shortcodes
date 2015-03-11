@@ -6,20 +6,20 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   display: inline-block;
-  height: 38px;
-  padding: 0 30px;
+  height: 3.39em;
+  padding: 0 2.685em;
   color: #555;
   text-align: center;
-  font-size: 11px;
+  font-size: .688em;
   font-weight: 600;
-  line-height: 38px;
+  line-height: 3.39em;
   letter-spacing: .1rem;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
-  border-radius: 4px;
-  border: 1px solid #bbb;
+  border-radius: .250em;
+  border: 0.063em solid #bbb;
   cursor: pointer;
   box-sizing: border-box; }
 .button:hover,
