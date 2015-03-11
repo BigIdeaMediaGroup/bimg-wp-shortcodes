@@ -32,8 +32,12 @@ foreach ( glob( plugin_dir_path( __FILE__ ) . 'shortcodes/*.php' ) as $file ) {
 add_filter( 'no_texturize_shortcodes', 'shortcodes_to_exempt_from_wptexturize' );
 function shortcodes_to_exempt_from_wptexturize( $shortcodes ) {
     $shortcodes[] = 'bimg_tabs';
+    $shortcodes[] = 'bimg_accordion';
     return $shortcodes;
 }
+
+// Accordion
+$bimg_accordion = new BIMGAccordion;
 
 // Button
 $bimg_button = new BIMGButton;
