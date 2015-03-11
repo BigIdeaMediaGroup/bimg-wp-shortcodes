@@ -240,6 +240,74 @@
                     ]
                 },
                 {
+                    text: 'Image',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert Image Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'img_url',
+                                    label: 'Image URL'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'alt',
+                                    label: 'Description'
+                                },
+                                {
+                                    type: 'radio',
+                                    name: 'scale',
+                                    label: 'Scale Image?'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'url',
+                                    label: 'External URL'
+                                },
+                                {
+                                    type: 'listbox',
+                                    name: 'target',
+                                    label: 'Open URL In:',
+                                    'values': [
+                                        {text: 'None', value: false},
+                                        {text: 'Same Tab/Window', value: '_self'},
+                                        {text: 'New Tab/Window', value: '_blank'},
+                                    ]
+                                }
+                            ],
+                            onsubmit: function( e ) {
+                                if( e.data.img_url === '') {
+                                    editor.windowManager.alert('You must specify an Image URL.');
+                                    return false;
+                                }
+                                if( e.data.alt === '') {
+                                    editor.windowManager.alert('Be nice and write a Description.');
+                                    return false;
+                                }
+                                editor.insertContent(
+                                    '[bimg_image id="' + e.data.id +
+                                        '" class="' + e.data.class +
+                                        '" img_url="' + e.data.img_url +
+                                        '" alt="' + e.data.alt +
+                                        '" scale="' + e.data.scale +
+                                        '" url="' + e.data.url +
+                                        '" target="' + e.data.target + '"]');
+                            }
+                        });
+                    }
+                },
+                {
                     text: 'Section',
                     onclick: function() {
                         editor.windowManager.open( {
