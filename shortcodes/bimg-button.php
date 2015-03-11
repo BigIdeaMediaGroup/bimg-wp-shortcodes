@@ -7,10 +7,6 @@
  * - add support for the target attribute
  * - add support for the title attribute
  * - add support for CSS align
- * - add error handling
- * - remove inline styling
- * - separate shortcode logic from shortcode definition
- * - bring tinymce plugin up to feature parity
  *
  * ShortCode Options:
  *		style: "primary" or "standard"
@@ -27,7 +23,7 @@ class BIMGButton {
 
 	public function enqueue_shortcode_scripts()
 	{
-		wp_enqueue_style( 'button', plugins_url( 'bimg-wp-shortcodes/css/button/button.css' ) );
+		wp_enqueue_style( 'button', plugins_url( 'bimg-wp-shortcodes/css/button/button-min.css' ) );
 
 	}
 
