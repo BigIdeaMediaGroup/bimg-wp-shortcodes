@@ -13,6 +13,18 @@ class BIMGSection {
         add_shortcode( 'bimg_section', array( $this, 'shortcode' ) );
     }
 
+    public function shortcode( $atts, $content = null )
+    {
+        $a = shortcode_atts( array(
+            'heading' => null,
+            'background' => null,
+            'class' => null,
+            'id' => null,
+        ), $atts, 'bimg_section' );
+
+        return $this->build_section( $a['heading'], $a['class'], $a['id'], $content );
+    }
+
     public function build_section( $heading, $class, $id, $content )
     {
         $output = '<section';
@@ -30,18 +42,6 @@ class BIMGSection {
         $output .= '</section>';
 
         return $output;
-    }
-
-    public function shortcode( $atts, $content = null )
-    {
-        $a = shortcode_atts( array(
-            'heading' => null,
-            'background' => null,
-            'class' => null,
-            'id' => null,
-        ), $atts, 'bimg_section' );
-
-        return $this->build_section( $a['heading'], $a['class'], $a['id'], $content );
     }
 }
 

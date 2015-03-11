@@ -5,10 +5,20 @@ class BIMGImage {
 		add_shortcode( 'bimg_image', array( $this, 'shortcode' ) );
 	}
 
+	function shortcode( $atts )
+	{
+		$a = shortcode_atts( array(
+			'id' => null,
+			'class' => null,
+			'image-id' => null,
+			'image-url' => null,
+		), $atts, 'bimg_image' );
+
+        return $this->build_separator( $a['id'], $a['class'], $a['image-id'], $a['image-url'] );
+	}
+
     function build_separator( $id, $class, $imageID , $imageURL )
     {
-		
-		
 		if (isset($imageID))
 		{
 			//Entered and Image ID
@@ -24,21 +34,7 @@ class BIMGImage {
 				//They Didnt Include A URL or ID
 			}
 		}
-	
+
 		return $output;
     }
-
-	function shortcode( $atts )
-	{
-		$a = shortcode_atts( array(
-			'id' => null,
-			'class' => null,
-			'image-id' => null,
-			'image-url' => null,
-		), $atts, 'bimg_image' );
-		
-		
-
-        return $this->build_separator( $a['id'], $a['class'], $a['image-id'], $a['image-url'] );
-	}
 }

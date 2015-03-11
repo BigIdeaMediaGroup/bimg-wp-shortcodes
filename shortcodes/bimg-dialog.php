@@ -23,9 +23,21 @@ class BIMGDialog {
 		wp_enqueue_script( 'vex', plugins_url( 'bimg-wp-shortcodes/js/vex.combined.min.js' ) );
 	}
 
+	public function shortcode( $atts, $content = null )
+	{
+		$a = shortcode_atts( array(
+			'style' => null,
+			'title' => null,
+			'buttontext' => null,
+			'class' => null,
+			'id' => null,
+		), $atts, 'bimg_row' );
+
+		return $this->build_dialog( $a['style'], $a['title'], $a['buttontext'], $a['class'], $a['id'], $content );
+	}
+
 	public function build_dialog( $style, $title, $buttontext, $class, $id, $content )
 	{
-		
 		// Set a random id if one is not specified
 		if ( isset( $id ) && ( $id === '' ) ) {
 
@@ -58,19 +70,6 @@ class BIMGDialog {
 					</script>';
 
 		return $output;
-	}
-
-	public function shortcode( $atts, $content = null )
-	{
-		$a = shortcode_atts( array(
-			'style' => null,
-			'title' => null,
-			'buttontext' => null,
-			'class' => null,
-			'id' => null,
-		), $atts, 'bimg_row' );
-
-		return $this->build_dialog( $a['style'], $a['title'], $a['buttontext'], $a['class'], $a['id'], $content );
 	}
 }
 

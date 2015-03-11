@@ -19,6 +19,18 @@ class BIMGColumn {
 		wp_enqueue_style( 'grid', plugins_url( 'bimg-wp-shortcodes/css/grid.css' ) );
 	}
 
+	public function shortcode( $atts, $content = null )
+	{
+		$a = shortcode_atts( array(
+			'columns' => '2',
+			'width' => '1',
+			'class' => null,
+			'id' => null,
+		), $atts, 'bimg_col' );
+
+		return $this->build_column( $a['columns'], $a['width'], $a['class'], $a['id'], $content );
+	}
+
 	public function build_column( $columns, $width, $class, $id, $content )
 	{
 		$output = '<div class="col span_' . $width . '_of_' . $columns;
@@ -33,18 +45,6 @@ class BIMGColumn {
 		$output .= '</div>';
 
 		return $output;
-	}
-
-	public function shortcode( $atts, $content = null )
-	{
-		$a = shortcode_atts( array(
-			'columns' => '2',
-			'width' => '1',
-			'class' => null,
-			'id' => null,
-		), $atts, 'bimg_col' );
-
-		return $this->build_column( $a['columns'], $a['width'], $a['class'], $a['id'], $content );
 	}
 }
 

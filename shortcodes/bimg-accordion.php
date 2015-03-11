@@ -25,6 +25,19 @@ class BIMGAccordion {
         wp_enqueue_script( 'jquery-ui-accordion' );
     }
 
+    public function shortcode( $atts, $content = null )
+    {
+        $a = shortcode_atts( array(
+            'collapsible' => null,
+            'height_style' => null,
+            'icon' => null,
+            'class' => null,
+            'id' => null,
+        ), $atts, 'bimg_accordion' );
+
+        return $this->build_accordion( $a['collapsible'], $a['height_style'], $a['icon'], $a['class'], $a['id'], $content );
+    }
+
     public function build_accordion( $collapsible, $height_style, $icon, $class, $id, $content )
     {
         preg_match_all("/\[toggle title=['\"](?P<title>[^\]]*)['\"]\](?P<content>[^\[]*)\[\/toggle\]/", $content, $out);
@@ -90,19 +103,6 @@ class BIMGAccordion {
         $output .= '}); });</script>';
 
         return $output;
-    }
-
-    public function shortcode( $atts, $content = null )
-    {
-        $a = shortcode_atts( array(
-            'collapsible' => null,
-            'height_style' => null,
-            'icon' => null,
-            'class' => null,
-            'id' => null,
-        ), $atts, 'bimg_accordion' );
-
-        return $this->build_accordion( $a['collapsible'], $a['height_style'], $a['icon'], $a['class'], $a['id'], $content );
     }
 }
 

@@ -5,6 +5,16 @@ class BIMGSeparator {
 		add_shortcode( 'bimg_separator', array( $this, 'shortcode' ) );
 	}
 
+	function shortcode( $atts )
+	{
+		$a = shortcode_atts( array(
+			'id' => null,
+			'class' => null,
+		), $atts, 'bimg_separator' );
+
+        return $this->build_separator( $a['id'], $a['class'] );
+	}
+
     function build_separator( $id, $class )
     {
 		$output = '<hr';
@@ -18,14 +28,4 @@ class BIMGSeparator {
 
 		return $output;
     }
-
-	function shortcode( $atts )
-	{
-		$a = shortcode_atts( array(
-			'id' => null,
-			'class' => null,
-		), $atts, 'bimg_separator' );
-
-        return $this->build_separator( $a['id'], $a['class'] );
-	}
 }

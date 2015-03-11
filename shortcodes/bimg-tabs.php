@@ -25,6 +25,16 @@ class BIMGTabs {
         wp_enqueue_script( 'jquery-ui-tabs' );
     }
 
+    public function shortcode( $atts, $content = null )
+    {
+        $a = shortcode_atts( array(
+            'class' => null,
+            'id' => null,
+        ), $atts, 'bimg_tabs' );
+
+        return $this->build_tabs( $a['class'], $a['id'], $content );
+    }
+
     public function build_tabs( $class, $id, $content )
     {
         preg_match_all("/\[tab title=['\"](?P<title>[^\]]*)['\"]\](?P<content>[^\[]*)\[\/tab\]/", $content, $out);
@@ -67,16 +77,6 @@ class BIMGTabs {
         $output .= '</script>';
 
         return $output;
-    }
-
-    public function shortcode( $atts, $content = null )
-    {
-        $a = shortcode_atts( array(
-            'class' => null,
-            'id' => null,
-        ), $atts, 'bimg_tabs' );
-
-        return $this->build_tabs( $a['class'], $a['id'], $content );
     }
 }
 

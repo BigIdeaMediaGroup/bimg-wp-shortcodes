@@ -21,6 +21,17 @@ class BIMGRow {
 		wp_enqueue_script( 'matchheight', plugins_url( 'bimg-wp-shortcodes/js/jquery.matchHeight.js' ) );
 	}
 
+	public function shortcode( $atts, $content = null )
+	{
+		$a = shortcode_atts( array(
+			'equal' => false,
+			'class' => null,
+			'id' => null,
+		), $atts, 'bimg_row' );
+
+		return $this->build_row( $a['equal'], $a['class'], $a['id'], $content );
+	}
+
 	public function build_row( $equal, $class, $id, $content )
 	{
 		$output = '<div class="section group';
@@ -40,17 +51,6 @@ class BIMGRow {
 		}
 
 		return $output;
-	}
-
-	public function shortcode( $atts, $content = null )
-	{
-		$a = shortcode_atts( array(
-			'equal' => false,
-			'class' => null,
-			'id' => null,
-		), $atts, 'bimg_row' );
-
-		return $this->build_row( $a['equal'], $a['class'], $a['id'], $content );
 	}
 }
 
