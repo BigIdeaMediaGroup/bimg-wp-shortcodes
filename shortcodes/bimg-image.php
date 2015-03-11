@@ -5,9 +5,25 @@ class BIMGImage {
 		add_shortcode( 'bimg_image', array( $this, 'shortcode' ) );
 	}
 
-    function build_separator( $id, $class )
+    function build_separator( $id, $class, $imageID , $imageURL )
     {
-		$output = '';
+		
+		
+		if (isset($imageID))
+		{
+			//Entered and Image ID
+		}
+		else
+		{
+			if (isset($imageURL))
+			{
+				//Entered and Image URL
+			}
+			else
+			{
+				//They Didnt Include A URL or ID
+			}
+		}
 	
 		return $output;
     }
