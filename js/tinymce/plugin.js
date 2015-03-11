@@ -31,52 +31,13 @@
                                     name: 'url',
                                     label: 'Button URL'
                                 },
-                                {
-                                    type: 'textbox',
-                                    name: 'textcolor',
-                                    label: 'Text Color'
-                                },
-                                {
-                                    type: 'textbox',
-                                    name: 'color',
-                                    label: 'Button Color'
-                                },
-                                {
-                                    type: 'listbox',
-                                    name: 'shape',
-                                    label: 'Shape',
-                                    'values': [
-                                        { text: 'Rounded', value: 'rounded' },
-                                        { text: 'Square', value: 'square' }
-                                    ]
-                                },
-                                {
-                                    type: 'listbox',
-                                    name: 'size',
-                                    label: 'Size',
-                                    'values': [
-                                        { text: 'Small', value: 'small' },
-                                        { text: 'Medium', value: 'medium' },
-                                        { text: 'Large', value: 'large' }
-                                    ]
-                                },
-                                {
-                                    type: 'radio',
-                                    name: 'border',
-                                    label: 'Border'
-                                },
-                            ],
+                                                            ],
                             onsubmit: function( e ) {
                                 editor.insertContent(
                                     '[bimg_button id="' + e.data.id +
                                         '" class="' + e.data.class +
                                         '" text="' + e.data.text +
                                         '" url="' + e.data.url +
-                                        '" text_color="' + e.data.textcolor +
-                                        '" button_color="' + e.data.color +
-                                        '" shape="' + e.data.shape +
-                                        '" size="' + e.data.size +
-                                        '" border="' + e.data.border +
                                         '"]');
                             }
                         });
