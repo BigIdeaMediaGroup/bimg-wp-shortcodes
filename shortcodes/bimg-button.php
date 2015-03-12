@@ -23,7 +23,7 @@ class BIMGButton {
 
     public function enqueue_shortcode_scripts()
     {
-        wp_enqueue_style( 'button', plugins_url( 'bimg-wp-shortcodes/css/button/button.min.css' ) );
+        wp_enqueue_style( 'button', plugins_url( 'bimg-wp-shortcodes/css/button/button.css' ) );
 
     }
 
