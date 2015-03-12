@@ -59,7 +59,10 @@ $bimg_tabs = new BIMGTabs;
 $bimg_dialog = new BIMGDialog;
 
 // Image System
-$bimg_tabs = new BIMGImage;
+$bimg_image = new BIMGImage;
+
+// Slider
+$bimg_slider = new BIMGSlider;
 
 
 // Register tinymce button

@@ -53,7 +53,7 @@ class BIMGDialog {
 			$buttontext = 'Learn More';
 		}
 
-		$output  = do_shortcode( '[bimg_button id="' . $id . '" class="' . $class . '" text="' . $buttontext . '"]' );
+		$output  = do_shortcode( '[bimg_button id="' . $id . '" class="' . $class . '" style="standard"]' . $buttontext . '[/bimg_button]' );
 		$output .= '<script>jQuery(document).ready(function() {
 						jQuery("#' . $id . '").click(function(){
 							vex.dialog.buttons.YES.text = "Close";
