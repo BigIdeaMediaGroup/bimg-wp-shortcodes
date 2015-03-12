@@ -140,7 +140,19 @@
                                     type: 'textbox',
                                     name: 'url',
                                     label: 'Button URL'
+                                },
+                                {
+                                   type: 'listbox',
+                                    name: 'target',
+                                    label: 'Button Target',
+                                    'values': [
+	                                    {text: 'Self', value: 'self'},
+                                        {text: 'Blank', value: 'blank'},
+                                        {text: 'Patrent', value: 'parent'},
+                                        {text: 'Top', value: 'top'},
+                                    ]
                                 }
+
                             ],
                             onsubmit: function( e ) {
                                 editor.insertContent(
@@ -148,6 +160,7 @@
                                         '" class="' + e.data.class +
                                         '" style="' + e.data.style +
                                         '" url="' + e.data.url +
+                                        '" target="' + e.data.target +
                                         '"]' + e.data.text + '[/bimg_button]');
                             }
                         });

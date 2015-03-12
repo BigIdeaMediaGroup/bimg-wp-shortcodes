@@ -42,10 +42,10 @@ class BIMGTabs {
         // Opening <div>
         $output = '<div id="';
         if ( isset( $id ) && ( $id != '' ) ) {
-            $output .= $id;
+            $output .= esc_attr( $id );
         }
         if ( isset( $class ) && ( $class != '' ) ) {
-            $output .= '" class="' . $class;
+            $output .= '" class="' . esc_attr( $class );
         }
         $output .= '">';
 
@@ -53,7 +53,7 @@ class BIMGTabs {
         $index = 1;
         $output .= '<ul>';
         foreach ( $out['title'] as $title ) {
-            $output .= '<li><a href="#' . $id . '-' . $index . '">';
+            $output .= '<li><a href="#' . esc_attr( $id ) . '-' . $index . '">';
             $output .= $title;
             $output .= '</a></li>';
             $index++;
@@ -63,7 +63,7 @@ class BIMGTabs {
         // The contents
         $index = 1;
         foreach ( $out['content'] as $tab_contents ) {
-            $output .= '<div id="' . $id . '-' . $index . '">';
+            $output .= '<div id="' . esc_attr( $id ) . '-' . $index . '">';
             $output .= do_shortcode( $tab_contents );
             $output .= '</div>';
             $index++;

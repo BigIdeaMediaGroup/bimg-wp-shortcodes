@@ -29,14 +29,14 @@ class BIMGSection {
     {
         $output = '<section';
         if ( isset( $class ) && ( $class != '' ) ) {
-            $output .= ' class="' . $class . '"';
+            $output .= ' class="' . esc_attr( $class ) . '"';
         }
         if ( isset( $id ) && ( $id != '' ) ) {
-            $output .= ' id="' . $id . '"';
+            $output .= ' id="' . esc_attr( $id ) . '"';
         }
         $output .= '>';
         if ( isset( $heading ) && ( $heading != '' ) ) {
-            $output .= '<h1>' . $heading . '</h1>';
+            $output .= '<h1>' . esc_html( $heading ) . '</h1>';
         }
         $output .= do_shortcode( $content );
         $output .= '</section>';
