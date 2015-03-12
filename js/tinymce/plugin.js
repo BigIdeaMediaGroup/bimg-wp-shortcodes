@@ -127,8 +127,9 @@
                                     name: 'style',
                                     label: 'Button Style',
                                     'values': [
-                                        {text: 'Default', value: 'standard'},
-                                        {text: 'Primary', value: 'primary'},
+                                        {text: 'Default', value: 'default'},
+                                        {text: 'Light', value: 'light'},
+                                        {text: 'Dark', value: 'dark'},
                                     ]
                                 },
                                 {

@@ -30,7 +30,7 @@ class BIMGButton {
     function shortcode( $atts, $content = null )
     {
         $a = shortcode_atts( array(
-            'style' => 'primary',
+            'style' => 'default',
             'url' => null,
             'target' => null,
             'id' => null,
@@ -44,8 +44,14 @@ class BIMGButton {
     {
         // Build the button anchor
         $output = '<a class="button';
-        if ( $style === 'primary' ) {
-            $output .= ' button-primary';
+        if ( $style === 'default' ) {
+            $output .= ' button-default';
+        }
+        if ( $style === 'light' ) {
+            $output .= ' button-light';
+        }
+         if ( $style === 'dark' ) {
+            $output .= ' button-dark';
         }
         if ( isset( $class ) && ( $class != '' ) ) {
             $output .= ' ' . $class;

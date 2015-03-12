@@ -1,7 +1,7 @@
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a.button,
-button,
+button-dark,
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -9,7 +9,6 @@ a.button:visited {
     display: inline-block;
     height: 3.39em;
     padding: 0 2.685em;
-    color: #555;
     text-align: center;
     font-size: .688em;
     font-weight: 600;
@@ -18,7 +17,6 @@ a.button:visited {
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    background-color: transparent;
     border-radius: .250em;
     border: 1px solid #bbb;
     cursor: pointer;
@@ -35,31 +33,54 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
+
+}
+
+a.button-dark,
+button-dark,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+a.button-dark:visited {
+    color: #555;
+    border: 1px solid #bbb;
+  }
+
+a.button-dark:hover,
+button-dark:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+a.button-dark:focus,
+button-dark:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
     color: #333;
     border-color: #888;
     outline: 0;
 }
 
-a.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="reset"].button-primary,
-input[type="button"].button-primary {
+a.button.button-default,
+button.button-default,
+input[type="submit"].button-default,
+input[type="reset"].button-default,
+input[type="button"].button-default {
     color: #FFF;
     background-color: #33C3F0;
     border-color: #33C3F0;
 }
 
-a.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="reset"].button-primary:hover,
-input[type="button"].button-primary:hover,
-a.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="reset"].button-primary:focus,
-input[type="button"].button-primary:focus {
+a.button.button-default:hover,
+button.button-default:hover,
+input[type="submit"].button-default:hover,
+input[type="reset"].button-default:hover,
+input[type="button"].button-default:hover,
+a.button.button-default:focus,
+button.button-default:focus,
+input[type="submit"].button-default:focus,
+input[type="reset"].button-default:focus,
+input[type="button"].button-default:focus {
     color: #FFF;
     background-color: #1EAEDB;
     border-color: #1EAEDB;
@@ -71,23 +92,10 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 a.button-light:visited {
-    display: inline-block;
-    height: 3.39em;
-    padding: 0 2.685em;
+    
     color: #F2F2F2;
-    text-align: center;
-    font-size: .688em;
-    font-weight: 600;
-    line-height: 3.39em;
-    letter-spacing: .1rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: transparent;
-    border-radius: .250em;
     border: 1px solid #F2F2F2;
-    cursor: pointer;
-    box-sizing: border-box;
+
 }
 
 a.button-light:hover,
@@ -101,9 +109,8 @@ input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
     color: #333;
-    border-color: #888;
-    outline: 0;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.54);
+	border-color: rgb(255, 255, 255);
 }
 	
 
