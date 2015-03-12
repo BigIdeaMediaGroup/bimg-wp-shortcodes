@@ -34,31 +34,27 @@ class BIMGImage {
             }
         }
 
-        try {
-            $output .= '<img ';
-            if ( isset( $id ) && ( $id != '' ) ) {
-                $output .= 'id="' . $id . '"';
-            }
-            if ( isset( $class ) && ( $class != '' ) ) {
-                $output .= 'class="' . $class . '"';
-            }
-            $output .= 'src="' . $img_url . '"';
-
-            // Add width and height attributes if scale is not true
-            if ( $scale !== 'true' ) {
-                $img = getimagesize( $img_url );
-                $img_size = $img[3];
-                $output .= ' ' . $img_size;
-            }
-
-            if ( isset( $alt ) && ( $alt != '' ) ) {
-                $output .= ' alt="' . $alt . '"';
-            }
-
-            $output .= '>';
-        } catch ( Exception $e ) {
-            $output .= '<p style="background: red; color: white;">' . $e->getMessage() . '</p>';
+        // Build the <img> tag
+        $output .= '<img ';
+        if ( isset( $id ) && ( $id != '' ) ) {
+            $output .= 'id="' . $id . '"';
         }
+        if ( isset( $class ) && ( $class != '' ) ) {
+            $output .= 'class="' . $class . '"';
+        }
+        $output .= 'src="' . $img_url . '"';
+
+        // Add width and height attributes if scale is not true
+        if ( $scale !== 'true' ) {
+            $img = getimagesize( $img_url );
+            $img_size = $img[3];
+            $output .= ' ' . $img_size;
+        }
+
+        if ( isset( $alt ) && ( $alt != '' ) ) {
+            $output .= ' alt="' . $alt . '"';
+        }
+        $output .= '>';
 
         // Close the anchor tag if necessary.
         if ( isset( $url ) && ( $url != '' ) ) {
