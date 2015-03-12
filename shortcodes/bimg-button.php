@@ -32,14 +32,15 @@ class BIMGButton {
         $a = shortcode_atts( array(
             'style' => 'primary',
             'url' => null,
+            'target' => null,
             'id' => null,
             'class' => null,
         ), $atts, 'bimg_button' );
 
-        return $this->build_button( $a['style'], $a['url'], $a['id'], $a['class'], $content );
+        return $this->build_button( $a['style'], $a['url'], $a['target'], $a['id'], $a['class'], $content );
     }
 
-    function build_button( $style, $url, $id, $class, $content )
+    function build_button( $style, $url, $target, $id, $class, $content )
     {
         // Build the button anchor
         $output = '<a class="button';
@@ -47,18 +48,21 @@ class BIMGButton {
             $output .= ' button-primary';
         }
         if ( isset( $class ) && ( $class != '' ) ) {
-            $output .= ' ' . esc_attr( $class );
+            $output .= ' ' . $class;
         }
         if ( isset( $id ) && ( $id != '' ) ) {
-            $output .= '" id="' . esc_id( $id );
+            $output .= '" id="' . $id;
         }
         if ( isset( $url ) && ( $url != '' ) ) {
-            $output .= '" href="'. esc_url( $url );
+            $output .= '" href="'. $url;
+        }
+        if ( isset( $target ) && ( $url != '' ) ) {
+            $output .= '" target="_'. $target;
         }
         $output .= '">';
 
         // Set the button title
-        $output .= esc_html ( $content ) . '</a>';
+        $output .= $content . '</a>';
 
         return $output;
     }

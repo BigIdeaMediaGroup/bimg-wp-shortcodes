@@ -1,10 +1,11 @@
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button,
+a.button,
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"] {
+input[type="button"],
+a.button:visited {
     display: inline-block;
     height: 3.39em;
     padding: 0 2.685em;
@@ -24,12 +25,12 @@ input[type="button"] {
     box-sizing: border-box;
 }
 
-.button:hover,
+a.button:hover,
 button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
-.button:focus,
+a.button:focus,
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
@@ -39,7 +40,7 @@ input[type="button"]:focus {
     outline: 0;
 }
 
-.button.button-primary,
+a.button.button-primary,
 button.button-primary,
 input[type="submit"].button-primary,
 input[type="reset"].button-primary,
@@ -49,12 +50,12 @@ input[type="button"].button-primary {
     border-color: #33C3F0;
 }
 
-.button.button-primary:hover,
+a.button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
 input[type="reset"].button-primary:hover,
 input[type="button"].button-primary:hover,
-.button.button-primary:focus,
+a.button.button-primary:focus,
 button.button-primary:focus,
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
