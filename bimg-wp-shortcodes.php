@@ -64,6 +64,9 @@ $bimg_image = new BIMGImage;
 // Slider
 $bimg_slider = new BIMGSlider;
 
+// CodeBlock
+$bimg_codeblock = new BIMGCodeblock;
+
 
 // Register tinymce button
 add_action('admin_head', 'bimg_add_mce_button');
