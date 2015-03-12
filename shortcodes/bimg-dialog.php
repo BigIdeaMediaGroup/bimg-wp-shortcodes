@@ -38,7 +38,7 @@ class BIMGDialog {
 
 	public function build_dialog( $style, $title, $buttontext, $class, $id, $content )
 	{
-		// Set a random id if one is not specified
+		// Set a random id if none is specified
 		if ( isset( $id ) && ( $id === '' ) ) {
 
 			$bytes = openssl_random_pseudo_bytes(10);

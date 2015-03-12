@@ -47,18 +47,18 @@ class BIMGButton {
             $output .= ' button-primary';
         }
         if ( isset( $class ) && ( $class != '' ) ) {
-            $output .= ' ' . $class;
+            $output .= ' ' . esc_attr( $class );
         }
         if ( isset( $id ) && ( $id != '' ) ) {
-            $output .= '" id="' . $id;
+            $output .= '" id="' . esc_id( $id );
         }
         if ( isset( $url ) && ( $url != '' ) ) {
-            $output .= '" href="'. $url;
+            $output .= '" href="'. esc_url( $url );
         }
         $output .= '">';
 
         // Set the button title
-        $output .= $content . '</a>';
+        $output .= esc_html ( $content ) . '</a>';
 
         return $output;
     }

@@ -36,10 +36,10 @@ class BIMGRow {
 	{
 		$output = '<div class="section group';
 		if ( isset( $class ) && ( $class != '' ) ) {
-			$output .= ' ' . $class;
+			$output .= ' ' . esc_attr( $class );
 		}
 		if ( isset( $id ) && ( $id != '' ) ) {
-			$output .= '" id="' . $id;
+			$output .= '" id="' . esc_attr( $id );
 		}
 		$output .= '">';
 		$output .= do_shortcode( $content );

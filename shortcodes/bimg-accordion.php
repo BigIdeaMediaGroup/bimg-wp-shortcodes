@@ -45,18 +45,18 @@ class BIMGAccordion {
         // Opening <div>
         $output = '<div id="';
         if ( isset( $id ) && ( $id != '' ) ) {
-            $output .= $id;
+            $output .= esc_attr( $id );
         }
         if ( isset( $class ) && ( $class != '' ) ) {
-            $output .= '" class="' . $class;
+            $output .= '" class="' . esc_attr( $class );
         }
         $output .= '">';
 
         // Loop through toggles
         $toggle_number = count( $out['title'] );
         for ( $index = 0; $index < $toggle_number; $index++ ) {
-            $output .= '<h3>' . $out['title'][$index] . '</h3>';
-            $output .= '<div>' . $out['content'][$index] . '</div>';
+            $output .= '<h3>' . esc_html( $out['title'][$index] ) . '</h3>';
+            $output .= '<div>' . esc_html( $out['content'][$index] ) . '</div>';
         }
 
         $output .= '</div>';

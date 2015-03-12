@@ -26,9 +26,9 @@ class BIMGImage {
 
         // If a URL is set, wrap the image in an <a> tag.
         if ( isset( $url ) && ( $url != '' ) ) {
-            $output .= '<a href="' . $url . '" target="';
+            $output .= '<a href="' . esc_url( $url ) . '" target="';
             if ( in_array( $target, array( '_blank', '_self' ) ) ) {
-                $output .= $target . '">';
+                $output .= esc_attr ( $target ) . '">';
             } else {
                 $output .= '_self">';
             }
@@ -37,12 +37,12 @@ class BIMGImage {
         // Build the <img> tag
         $output .= '<img ';
         if ( isset( $id ) && ( $id != '' ) ) {
-            $output .= 'id="' . $id . '"';
+            $output .= 'id="' . esc_attr ( $id ) . '"';
         }
         if ( isset( $class ) && ( $class != '' ) ) {
-            $output .= 'class="' . $class . '"';
+            $output .= 'class="' . esc_attr ( $class ) . '"';
         }
-        $output .= 'src="' . $img_url . '"';
+        $output .= 'src="' . esc_url( $img_url ) . '"';
 
         // Add width and height attributes if scale is not true
         if ( $scale !== 'true' ) {
@@ -52,7 +52,7 @@ class BIMGImage {
         }
 
         if ( isset( $alt ) && ( $alt != '' ) ) {
-            $output .= ' alt="' . $alt . '"';
+            $output .= ' alt="' . esc_attr ( $alt ) . '"';
         }
         $output .= '>';
 

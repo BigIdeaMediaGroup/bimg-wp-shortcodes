@@ -19,10 +19,10 @@ class BIMGSeparator {
     {
 		$output = '<hr';
 		if ( isset( $id ) && ( $id != '' ) ) {
-			$output .= ' id="' . $id . '"';
+			$output .= ' id="' . esc_attr( $id ) . '"';
 		}
 		if ( isset( $class ) && ( $class != '' ) ) {
-			$output .= ' class="' . $class . '"';
+			$output .= ' class="' . esc_attr( $class ) . '"';
 		}
 		$output .= '>';
 
