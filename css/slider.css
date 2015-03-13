@@ -14,7 +14,7 @@
 	display: block;
 	float: left;
 	background-size: cover;
-	background-position-x: center;
+	background-position: center bottom;
 	height: 300px;
 }
 
