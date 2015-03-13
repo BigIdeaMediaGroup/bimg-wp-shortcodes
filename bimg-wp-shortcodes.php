@@ -70,6 +70,9 @@ $bimg_codeblock = new BIMGCodeblock;
 // Title
 $bimg_title = new BIMGTitle;
 
+// Title
+$bimg_title = new BIMGTestimonial;
+
 
 
 // Register tinymce button
