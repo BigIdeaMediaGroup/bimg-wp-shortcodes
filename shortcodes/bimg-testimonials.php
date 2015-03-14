@@ -57,9 +57,11 @@ class BIMGTestimonial {
 	   
 	    $output .= '</div>';
 	    
+	    
 	    $output .= '<script> jQuery( document ).ready(function() {
 	     rotateTestimonials(); 
 	     });</script>';
+	     
 	    return $output;
     }
 }
