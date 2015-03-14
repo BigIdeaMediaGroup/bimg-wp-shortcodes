@@ -1,7 +1,13 @@
 .testimonial_slider
 {
-display: none;	
- position: absolute;
+	display: none;	
+	position: absolute;
 	vertical-align: top;
+	margin: 10px;
 	
+}
+
+.testimonail_container
+{
+	background-color: #ededed;
 }

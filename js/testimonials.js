@@ -1,3 +1,5 @@
+//see bimg-testimonials php file for to-do list
+
 function rotateTestimonials() {
 
 	var elements = document.getElementsByClassName('testimonial_slider'); //creates a nodelist of all the objects mathing the class
@@ -33,13 +35,3 @@ if (total != 0 )
 		
 	}
 }
-/*
-jQuery( ".testimonial_slider" ).each(function( index ) {
-
-			jQuery(this).fadeToggle("slow").delay('1000');
-			this.wait(1000);
-});
-
-*/
-
-	
