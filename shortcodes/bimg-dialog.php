@@ -41,15 +41,15 @@ class BIMGDialog {
 		// Set a random id if none is specified
 		if ( isset( $id ) && ( $id === '' ) ) {
 
-			$bytes = openssl_random_pseudo_bytes(10);
-			$hex = bin2hex($bytes);
-			var_dump($hex);
+			$bytes = openssl_random_pseudo_bytes( 10 );
+			$hex = bin2hex( $bytes );
+			var_dump( $hex );
 
 			$id = 'button' . $hex;
 		}
 
 		// Set the default button text
-		if ( !isset( $buttontext ) or ( $buttontext == '' ) ) {
+		if ( ! isset( $buttontext ) or ( $buttontext == '' ) ) {
 			$buttontext = 'Learn More';
 		}
 
@@ -59,9 +59,9 @@ class BIMGDialog {
 							vex.dialog.buttons.YES.text = "Close";
 							vex.dialog.alert({
 								message: "';
-								if ( isset( $title ) && ( $title != '' ) ) {
-									$output .= '<h3>' . $title . '</h3>';
-								}
+		if ( isset( $title ) && ( $title != '' ) ) {
+			$output .= '<h3>' . $title . '</h3>';
+		}
 								$output .= do_shortcode( $content ) . '",
 								className: "' . $style . '"
 							});

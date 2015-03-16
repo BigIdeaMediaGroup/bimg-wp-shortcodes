@@ -1,18 +1,28 @@
-gray.testimonial_slider
+.testimonial_slider
 {
-	position: relative;
-    display: none;
-    
-}
-
-.testimonials_title
-{
-	font-weight: bold;
-	font-style: italic;
+    display: none;   
 }
 
 .testimonial_content
 {
 	background-color: #e9e9e9;
 	padding: 1px;
+}
+
+.testimonials_title
+{
+	font-weight: bold;
+	font-style: italic;
+	padding-top: 5px;
+}
+
+.testimonial_title_text
+{
+	display:inline-block;
+}
+
+.testimonial_title_image
+{
+	display: inline-block;
+	vertical-align: middle;
 }

@@ -167,6 +167,50 @@
                         });
                     }
                 },
+                  {
+                    text: 'Testimonials',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert Testimonial Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                },
+								{
+                                    type: 'textbox',
+                                    name: 'delay',
+                                    label: 'Transition Wait Time'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'post_type',
+                                    label: 'Post Type'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'category_name',
+                                    label: 'Category Name'
+                                }
+                            ],
+                            onsubmit: function( e ) {
+                                editor.insertContent(
+                                    '[bimg_testimonial id="' + e.data.id +
+                                        '" class="' + e.data.class +
+                                        '" delay="' + e.data.delay +
+                                        '" post_type="' + e.data.post_type +
+                                        '" category_name="' + e.data.category_name +
+                                        '"][/bimg_testimonial]');
+                            }
+                        });
+                    }
+                },
                 {
                     text: 'Grid',
                     menu: [

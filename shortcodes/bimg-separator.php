@@ -12,11 +12,11 @@ class BIMGSeparator {
 			'class' => null,
 		), $atts, 'bimg_separator' );
 
-        return $this->build_separator( $a['id'], $a['class'] );
+		return $this->build_separator( $a['id'], $a['class'] );
 	}
 
-    function build_separator( $id, $class )
-    {
+	function build_separator( $id, $class )
+	{
 		$output = '<hr';
 		if ( isset( $id ) && ( $id != '' ) ) {
 			$output .= ' id="' . esc_attr( $id ) . '"';
@@ -27,5 +27,5 @@ class BIMGSeparator {
 		$output .= '>';
 
 		return $output;
-    }
+	}
 }
