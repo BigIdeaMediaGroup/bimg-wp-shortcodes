@@ -22,8 +22,8 @@ class BIMGTestimonial {
 			'height' => 150,
 			'width' => 300,
 			'delay' => 7000,
-			'post_type' => 'testimonial',
-			'category_name' => 'testimonials',
+			'post_type' => null,
+			'category_name' => null,
 		), $atts, 'bimg_testimonial' );
 
 		return $this->build_testimonial( $a['class'], $a['id'], $a['height'], $a['width'], $a['delay'], $a['post_type'],$a['category_name'], $content );
@@ -49,13 +49,18 @@ class BIMGTestimonial {
 			if ( isset($class) ) {
 				$output .= ' ' . $class;
 			}
+			
+			if ( isset($id) ) {
+				$output .= '" id="' . $id;
+			}
 			$output .= '">';
-		    //$output .= '" style="height:' . $height . 'px; width:' . $width . 'px;">';
 			$output .= '<div class="testimonial_content">';
 			$output .= $testimonial_content;
             $output .= '</div>';
-            $output .= '<div class="testimonials_title">' . ' <img src="' . get_site_url() .'/wp-content/plugins/bimg-wp-shortcodes/img/ico-user.png" /> ' . $testimonial_title . '</div>';
-			$output .= '</div>';
+            $output .= '<div class="testimonials_title">'; 
+            $output .= ' <img src="' . get_site_url() .'/wp-content/plugins/bimg-wp-shortcodes/img/ico-user.png" /> ';
+            $output .= $testimonial_title;
+			$output .= '</div></div>';
 
 		}
 		
