@@ -10,19 +10,18 @@ class BIMGTestimonial {
 	{
 	    wp_enqueue_style( 'testimonials', plugins_url( 'bimg-wp-shortcodes/css/testimonials.css' ) );
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'wait', plugins_url( 'bimg-wp-shortcodes/js/wait.js' ) );
 		wp_enqueue_script( 'testimonials', plugins_url( 'bimg-wp-shortcodes/js/testimonials.js' ) );
 
 	}
 
-	public function shortcode( $atts, $content = null )
+	public function shortcode( $atts, $content = null )	
 	{
 		$a = shortcode_atts( array(
 			'class' => null,
 			'id' => null,
 			'height' => 150,
 			'width' => 300,
-			'delay' => 8000,
+			'delay' => 7000,
 			'post_type' => 'testimonial',
 			'category_name' => 'testimonials',
 		), $atts, 'bimg_testimonial' );
@@ -31,9 +30,8 @@ class BIMGTestimonial {
 	}
 
 	public function build_testimonial( $class, $id, $height, $width, $delay, $post_type, $category, $content )
-	{
-	    $output = '<div class="testimonail_container" style="height:' . $height . 'px; width:' . $width . 'px;">';
-
+	{				
+	    $output = '<div class="testimonial_container">';
 		$args = array(); // Args for the Loop
 		if ( $post_type !== null ) {
 			$args['post_type'] = $post_type;
@@ -49,20 +47,25 @@ class BIMGTestimonial {
 			$testimonial_title = apply_filters( 'the_title', get_the_title() );
 			$output .= '<div class="testimonial_slider';
 			if ( isset($class) ) {
-				$output .= ' ' . $class . ' ';
+				$output .= ' ' . $class;
 			}
-			$output .= '" style="height:' . $height . 'px; width:' . $width . 'px;">';
+			$output .= '">';
+		    //$output .= '" style="height:' . $height . 'px; width:' . $width . 'px;">';
+			$output .= '<div class="testimonial_content">';
 			$output .= $testimonial_content;
-			$output .= '<div class="testimonials_title">' . $testimonial_title . '</div>';
+            $output .= '</div>';
+            $output .= '<div class="testimonials_title">' . ' <img src="' . get_site_url() .'/wp-content/plugins/bimg-wp-shortcodes/img/ico-user.png" /> ' . $testimonial_title . '</div>';
 			$output .= '</div>';
 
 		}
+		
 		if ( $loop->have_posts() ) {
 	    	$output .= '</div>';
 			$output .= '<script> jQuery( document ).ready(function() { ';
-			$output .= ' rotateTestimonials(' . $delay  . ');';
+			$output .= ' rotateTestimonials(' . $delay . ');';
 			$output .= ' });</script>';
 		}
+		
 
 	    wp_reset_postdata();
 	    return $output;
