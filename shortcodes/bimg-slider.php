@@ -10,6 +10,8 @@ class BIMGSlider {
 	{
 		wp_enqueue_style( 'slider_style', plugins_url( 'bimg-wp-shortcodes/css/slider.css' ) );
 		wp_enqueue_script( 'jquery' );
+		// wp_enqueue_script( 'event_move', plugins_url( 'bimg-wp-shortcodes/js/jquery.event.move.js' ) );
+		// wp_enqueue_script( 'event_swipe', plugins_url( 'bimg-wp-shortcodes/js/jquery.event.swipe.js' ) );
 		wp_enqueue_script( 'unslider', plugins_url( 'bimg-wp-shortcodes/js/unslider.min.js' ) );
 	}
 

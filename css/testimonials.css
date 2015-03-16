@@ -6,7 +6,7 @@
 .testimonial_content
 {
 	background-color: #e9e9e9;
-	padding: 1px;
+	padding: .5rem 2rem;
 }
 
 .testimonials_title
@@ -19,6 +19,7 @@
 .testimonial_title_text
 {
 	display:inline-block;
+	margin-left: 1rem;
 }
 
 .testimonial_title_image
