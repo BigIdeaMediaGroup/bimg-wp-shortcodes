@@ -20,7 +20,6 @@ class BIMGSlider {
 			'class' => null,
 			'post_type' => null,
 			'category' => null,
-			'height' => null,
 		), $atts, 'bimg_slider' );
 
 		return $this->build_slider( $a['id'], $a['class'], $a['post_type'], $a['category'] );

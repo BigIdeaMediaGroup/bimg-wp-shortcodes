@@ -19,7 +19,7 @@ class BIMGTestimonial {
 		$a = shortcode_atts( array(
 			'class' => null,
 			'id' => null,
-			'delay' => 7000,
+			'delay' => '7000',
 			'post_type' => null,
 			'category_name' => null,
 		), $atts, 'bimg_testimonial' );

@@ -167,11 +167,12 @@
                         });
                     }
                 },
-                  {
-                    text: 'Testimonials',
+                
+                {
+                    text: 'Carousel',
                     onclick: function() {
                         editor.windowManager.open( {
-                            title: 'Insert Testimonial Shortcode',
+                            title: 'Insert Carousel Shortcode',
                             body: [
                                 {
                                     type: 'textbox',
@@ -185,32 +186,114 @@
                                 },
 								{
                                     type: 'textbox',
-                                    name: 'delay',
-                                    label: 'Transition Wait Time'
+                                    name: 'slides_to_show',
+                                    label: 'Slides To Show'
                                 },
                                 {
                                     type: 'textbox',
-                                    name: 'post_type',
-                                    label: 'Post Type'
+                                    name: 'slides_to_scroll',
+                                    label: 'Slides To Scroll'
                                 },
-                                {
-                                    type: 'textbox',
-                                    name: 'category_name',
-                                    label: 'Category Name'
-                                }
-                            ],
+								],
                             onsubmit: function( e ) {
                                 editor.insertContent(
-                                    '[bimg_testimonial id="' + e.data.id +
+                                    '[bimg_carousel id="' + e.data.id +
                                         '" class="' + e.data.class +
-                                        '" delay="' + e.data.delay +
-                                        '" post_type="' + e.data.post_type +
-                                        '" category_name="' + e.data.category_name +
-                                        '"][/bimg_testimonial]');
+                                        '" slides_to_show="' + e.data.slides_to_show +
+                                        '" slides_to_scroll="' + e.data.slides_to_scroll +
+                                        '"][/bimg_carousel]');
                             }
                         });
                     }
                 },
+                {
+                    text: 'CodeBlock',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert CodeBlock Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'text',
+                                    label: 'Text'
+                                }
+								],
+                            onsubmit: function( e ) {
+                                editor.insertContent(
+                                    '[bimg_codeblock id="' + e.data.id +
+                                        '" class="' + e.data.class +
+                                        '" h_size="' + e.data.h_size +
+                                        '"]' + e.data.text + '[/bimg_codeblock]');
+                            }
+                        });
+                    }
+                },
+
+				{
+                    text: 'Dialog',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert Dialog Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                },
+								{
+                                    type: 'textbox',
+                                    name: 'buttontext',
+                                    label: 'Button Text'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'title',
+                                    label: 'Title'
+                                },
+                                {
+                                   type: 'listbox',
+                                    name: 'location',
+                                    label: 'Dialog Location',
+                                    'values': [
+	                                    {text: 'Center', value: 'center'},
+                                        {text: 'Top', value: 'top'},
+                                    ]
+                                },
+                                 {
+                                    type: 'textbox',
+                                    name: 'text',
+                                    label: 'Dialog Text'
+                                }
+
+								],
+                            onsubmit: function( e ) {
+                                editor.insertContent(
+                                    '[bimg_dialog id="' + e.data.id +
+                                        '" class="' + e.data.class +
+                                        '" buttontext="' + e.data.buttontext +
+                                        '" title="' + e.data.title +
+                                        '" location="' + e.data.location +
+                                        '"]' + e.data.location + '[/bimg_dialog]');
+                            }
+                        });
+                    }
+                },
+
                 {
                     text: 'Grid',
                     menu: [
@@ -417,6 +500,44 @@
                     }
                 },
                 {
+                    text: 'Slider',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert Slider Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                },
+								{
+                                    type: 'textbox',
+                                    name: 'post_type',
+                                    label: 'Post Type'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'category',
+                                    label: 'Category'
+                                }
+								],
+                            onsubmit: function( e ) {
+                                editor.insertContent(
+                                    '[bimg_slider id="' + e.data.id +
+                                        '" class="' + e.data.class +
+                                        '" post_type="' + e.data.post_type +
+                                        '" category="' + e.data.category +
+                                        '"][/bimg_slider]');
+                            }
+                        });
+                    }
+                },
+                {
                     text: 'Tabs',
                     menu: [
                         {
@@ -478,7 +599,97 @@
                             }
                         }
                     ]
+                },
+                             {
+                    text: 'Testimonials',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert Testimonial Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                },
+								{
+                                    type: 'textbox',
+                                    name: 'delay',
+                                    label: 'Transition Wait Time'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'post_type',
+                                    label: 'Post Type'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'category_name',
+                                    label: 'Category Name'
+                                }
+                            ],
+                            onsubmit: function( e ) {
+                                editor.insertContent(
+                                    '[bimg_testimonial id="' + e.data.id +
+                                        '" class="' + e.data.class +
+                                        '" delay="' + e.data.delay +
+                                        '" post_type="' + e.data.post_type +
+                                        '" category_name="' + e.data.category_name +
+                                        '"][/bimg_testimonial]');
+                            }
+                        });
+                    }
+                },
+                {
+                    text: 'Title',
+                    onclick: function() {
+                        editor.windowManager.open( {
+                            title: 'Insert Title Shortcode',
+                            body: [
+                                {
+                                    type: 'textbox',
+                                    name: 'id',
+                                    label: 'ID'
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'class',
+                                    label: 'Class'
+                                },
+								{
+                                    type: 'listbox',
+                                    name: 'h_size',
+                                    label: 'H Size',
+                                    'values': [
+                                        {text: 'H1', value: '1'},
+                                        {text: 'H2', value: '2'},
+                                        {text: 'H3', value: '3'},
+                                        {text: 'H4', value: '4'},
+                                        {text: 'H5', value: '5'},
+                                        {text: 'H6', value: '6'},
+                                    ]
+                                },
+                                {
+                                    type: 'textbox',
+                                    name: 'text',
+                                    label: 'Text'
+                                }
+								],
+                            onsubmit: function( e ) {
+                                editor.insertContent(
+                                    '[bimg_title id="' + e.data.id +
+                                        '" class="' + e.data.class +
+                                        '" h_size="' + e.data.h_size +
+                                        '"]' + e.data.text + '[/bimg_title]');
+                            }
+                        });
+                    }
                 }
+
             ]
         });
     });

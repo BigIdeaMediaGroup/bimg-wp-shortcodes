@@ -18,7 +18,7 @@ class BIMGDialog {
 	{
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_style( 'vex-css', plugins_url( 'bimg-wp-shortcodes/css/vex/vex.css' ) );
-		wp_enqueue_style( 'vex-css-plain', plugins_url( 'bimg-wp-shortcodes/css/vex/vex-theme-plain.css' ) );
+		wp_enqueue_style( 'vex-css-center', plugins_url( 'bimg-wp-shortcodes/css/vex/vex-theme-center.css' ) );
 		wp_enqueue_style( 'vex-css-top', plugins_url( 'bimg-wp-shortcodes/css/vex/vex-theme-top.css' ) );
 		wp_enqueue_script( 'vex', plugins_url( 'bimg-wp-shortcodes/js/vex.combined.min.js' ) );
 	}
@@ -26,17 +26,17 @@ class BIMGDialog {
 	public function shortcode( $atts, $content = null )
 	{
 		$a = shortcode_atts( array(
-			'style' => null,
+			'location' => null,
 			'title' => null,
 			'buttontext' => null,
 			'class' => null,
 			'id' => null,
 		), $atts, 'bimg_row' );
 
-		return $this->build_dialog( $a['style'], $a['title'], $a['buttontext'], $a['class'], $a['id'], $content );
+		return $this->build_dialog( $a['location'], $a['title'], $a['buttontext'], $a['class'], $a['id'], $content );
 	}
 
-	public function build_dialog( $style, $title, $buttontext, $class, $id, $content )
+	public function build_dialog( $location, $title, $buttontext, $class, $id, $content )
 	{
 		// Set a random id if none is specified
 		if ( isset( $id ) && ( $id === '' ) ) {
@@ -63,7 +63,7 @@ class BIMGDialog {
 			$output .= '<h3>' . $title . '</h3>';
 		}
 								$output .= do_shortcode( $content ) . '",
-								className: "' . $style . '"
+								className: "vex-theme-' . $location . '"
 							});
 						});
 					});
