@@ -37,12 +37,14 @@ class BIMGCarousel {
         $a = shortcode_atts( array(
             'class' => null,
             'id' => null,
+            'slides_to_show' => '4',
+            'slides_to_scroll' => '4'
         ), $atts, 'bimg_carousel' );
 
-        return $this->build_carousel( $a['class'], $a['id'] );
+        return $this->build_carousel( $a['class'], $a['id'], $a['slides_to_show'], $a['slides_to_scroll'] );
     }
 
-    public function build_carousel( $class, $id )
+    public function build_carousel( $class, $id, $slidesToShow, $slidesToScroll )
     {
         // Build the carousel query
         $query_args = array(
@@ -74,8 +76,11 @@ class BIMGCarousel {
 
             // jQuery UI Tabs script
             $output .= '<script>jQuery(document).ready(function() {';
-            $output .= ' jQuery( ".' . $class . '").slick({ infinite: true, slidesToShow: 3, slidesToScroll: 3}); });';
-            $output .= '</script>';
+            $output .= ' jQuery( ".' . $class . '").slick({';
+            $output .= 'infinite: true,';
+            $output .= 'slidesToShow: ' . $slidesToShow . ',';
+            $output .= 'slidesToScroll: ' . $slidesToScroll . ',';
+            $output .= '}); });</script>';
         } else {
             echo "No Posts Found!";
         }
