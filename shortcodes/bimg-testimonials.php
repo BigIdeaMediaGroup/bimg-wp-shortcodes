@@ -55,6 +55,7 @@ class BIMGTestimonial {
 			$output .= '<div class="testimonial_content">';
 			$output .= $testimonial_content;
 			$output .= '</div>';
+			$output .= '<div class="testimonial_triangle"></div>';
 			$output .= '<div class="testimonials_title">';
 			$output .= ' <div class="testimonial_title_image"><img src="' . get_site_url() .'/wp-content/plugins/bimg-wp-shortcodes/img/ico-user.png" /></div> ';
 			$output .= '<div class="testimonial_title_text">' . $testimonial_title . '</div>';
