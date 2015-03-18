@@ -22,7 +22,7 @@ class BIMGSeparator {
 			$output .= ' id="' . esc_attr( $id ) . '"';
 		}
 		if ( isset( $class ) && ( $class != '' ) ) {
-			$output .= ' class="' . esc_attr( $class ) . '"';
+			$output .= ' class="separator ' . esc_attr( $class ) . '"';
 		}
 		$output .= '>';
 
