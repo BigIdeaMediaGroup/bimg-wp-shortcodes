@@ -3,6 +3,7 @@ class BIMGSlider {
 	public function __construct()
 	{
 	    add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_shortcode_scripts' ) );
+	    add_action( 'init', array( $this, 'create_slide_post_type' ) );
 		add_shortcode( 'bimg_slider', array( $this, 'shortcode' ) );
 	}
 
@@ -14,13 +15,27 @@ class BIMGSlider {
 		// wp_enqueue_script( 'event_swipe', plugins_url( 'bimg-wp-shortcodes/js/jquery.event.swipe.js' ) );
 		wp_enqueue_script( 'unslider', plugins_url( 'bimg-wp-shortcodes/js/unslider.min.js' ) );
 	}
+	
+	public function create_slide_post_type() {
+        register_post_type( 'bimg_slides',
+            array(
+                'labels' => array(
+                    'name' => __( 'Slides' ),
+                    'singular_name' => __( 'Slide' ),
+                ),
+                'public' => true,
+                'rewrite' => array('slug' => 'slides'),
+                'supports' => array('title','editor','thumbnail'),
+            )
+        );
+    }
 
 	function shortcode( $atts )
 	{
 		$a = shortcode_atts( array(
 			'id' => null,
 			'class' => null,
-			'post_type' => null,
+			'post_type' => 'bimg_slides',
 			'category' => null,
 		), $atts, 'bimg_slider' );
 

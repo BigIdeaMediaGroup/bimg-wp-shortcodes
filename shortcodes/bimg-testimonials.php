@@ -3,6 +3,7 @@ class BIMGTestimonial {
 	public function __construct()
 	{
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_shortcode_scripts' ) );
+		add_action( 'init', array( $this, 'create_testimonial_post_type' ) );
 		add_shortcode( 'bimg_testimonial', array( $this, 'shortcode' ) );
 	}
 
@@ -13,7 +14,21 @@ class BIMGTestimonial {
 		wp_enqueue_script( 'testimonials', plugins_url( 'bimg-wp-shortcodes/js/testimonials.js' ) );
 
 	}
-
+	
+	public function create_testimonial_post_type() {
+        register_post_type( 'bimg_testimonials',
+            array(
+                'labels' => array(
+                    'name' => __( 'Testimonials' ),
+                    'singular_name' => __( 'Testimonial' ),
+                ),
+                'public' => true,
+                'rewrite' => array('slug' => 'testimonial'),
+                'supports' => array('title','editor'),
+            )
+        );
+    }
+	
 	public function shortcode( $atts, $content = null )
 	{
 		$a = shortcode_atts( array(
